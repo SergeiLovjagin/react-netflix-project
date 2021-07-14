@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Container, Image, Inner, Item, Pane, SubTitle, Title,
-} from './styles/jumbotron';
+} from './styles/jumbotronStyle';
 
 type JumbotronProps = {
   children: any

@@ -24,6 +24,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'no-trailing-spaces': [2, { skipBlankLines: true }],
     'max-len': ['error', { code: 200 }],
     'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',
