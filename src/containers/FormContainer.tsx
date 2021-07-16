@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Form } from '../components';
 import * as ROUTE from '../constans/routes';
+import { FirebaseContext } from '../context/firebase';
 
 export const FormContainer = () => {
   const [emailAddress, setEmailAddress] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [error] = useState('');
+  const [error, setError] = useState('');
+  const { firebase } = useContext(FirebaseContext);
+  const history = useHistory();
 
   const handleSubmit = (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
-    // Firebase
+    firebase.auth().signInWithEmailAndPassword(emailAddress, password)
+      .then(() => {
+        history.push(ROUTE.BROWSE);
+      })
+      .catch((e) => {
+        setEmailAddress('');
+        setPassword('');
+        setError(e.message);
+      });
   };
 
   const isValid = emailAddress === '' || password === '';

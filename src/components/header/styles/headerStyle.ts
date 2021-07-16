@@ -25,7 +25,6 @@ export const Container = styled.div`
 export const ButtonLink = styled(ReactRouterLink)`
   display: block;
   background-color: #e50914;
-  width: 84px;
   height: fit-content;
   color: white;
   border: 0;
@@ -43,7 +42,7 @@ export const Logo = styled.img`
     //background: url(${({ src }) => src});
   background-size: contain;
   border: 0;
-  width: 32px;
-  height: 32px;
+  width: 100px;
+  height: 50px;
   cursor: pointer;
 `;
