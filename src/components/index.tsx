@@ -4,3 +4,4 @@ export { Accordion } from './accordiron';
 export { OptForm } from './opt-form';
 export { Header } from './header';
 export { Feature } from './feature';
+export { Form } from './form';
