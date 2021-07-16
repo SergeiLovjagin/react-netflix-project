@@ -26,7 +26,7 @@ module.exports = {
   rules: {
     camelcase: 'off',
     'no-trailing-spaces': [2, { skipBlankLines: true }],
-    'max-len': ['error', { code: 200 }],
+    'max-len': ['error', { code: 300 }],
     'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',
     'no-use-before-define': 'off',
