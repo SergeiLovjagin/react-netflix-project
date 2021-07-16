@@ -28,7 +28,7 @@ export const Title = styled.div`
 export const Item = styled.div`
   color: white;
   margin: auto auto 10px;
-  max-width: 670px;
+  max-width: 728px;
   width: 100%;
 
   &:first-of-type {
@@ -74,7 +74,7 @@ export const Body = styled.div`
   white-space: pre-wrap;
   user-select: none;
   overflow: hidden;
-  max-width: 628px;
+  max-width: 728px;
   box-sizing: border-box;
   padding: 30px;
   transition: 0.25s cubic-bezier(0.5, 0, 0.1, 1);
