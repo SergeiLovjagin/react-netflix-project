@@ -21,8 +21,8 @@ export const Home: React.FC = () => (
 
     </HeaderContainer>
     <JumbotronContainer />
-    <FooterContainer />
-    <AccordionContainer />
 
+    <AccordionContainer />
+    <FooterContainer />
   </>
 );
