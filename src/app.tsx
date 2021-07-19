@@ -1,31 +1,33 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-// eslint-disable-next-line no-unused-vars
-
+import { BrowserRouter, Switch } from 'react-router-dom';
 import {
   Browse, Home, SignIn, SignUp,
 } from './pages';
 import * as ROUTE from './constans/routes';
+import { IsUserRedirect, ProtectedRoute } from './felpers/routes';
 
-export const App: React.FC = () => (
+export const App: React.FC = () => {
+  const user = { };
 
-  <BrowserRouter>
+  return (
+    <BrowserRouter>
+      <Switch>
+        <IsUserRedirect user={user} loggedInPath={ROUTE.BROWSE} path={ROUTE.SIGN_IN}>
+          <SignIn />
+        </IsUserRedirect>
 
-    <Route exact path={ROUTE.HOME}>
-      <Home />
-    </Route>
+        <IsUserRedirect user={user} loggedInPath={ROUTE.BROWSE} path={ROUTE.SIGN_UP}>
+          <SignUp />
+        </IsUserRedirect>
 
-    <Route exact path={ROUTE.BROWSE}>
-      <Browse />
-    </Route>
+        <ProtectedRoute user={user} loggedInPath={ROUTE.BROWSE} path={ROUTE.BROWSE}>
+          <Browse />
+        </ProtectedRoute>
 
-    <Route exact path={ROUTE.SIGN_IN}>
-      <SignIn />
-    </Route>
-
-    <Route exact path={ROUTE.SIGN_UP}>
-      <SignUp />
-    </Route>
-
-  </BrowserRouter>
-);
+        <IsUserRedirect user={user} loggedInPath={ROUTE.BROWSE} path={ROUTE.HOME}>
+          <Home />
+        </IsUserRedirect>
+      </Switch>
+    </BrowserRouter>
+  );
+};

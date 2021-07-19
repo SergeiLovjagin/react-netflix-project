@@ -24,6 +24,8 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'arrow-body-style': 'off',
+    'no-debugger': 'off',
     camelcase: 'off',
     'no-unused-vars': 'off',
     'no-trailing-spaces': [2, { skipBlankLines: true }],
