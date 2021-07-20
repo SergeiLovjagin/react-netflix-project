@@ -11,7 +11,7 @@ export const SignUp: React.FC = () => {
   const [emailAddress, setEmailAddress] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [error, setError] = useState('');
-  const { firebase } = useContext(FirebaseContext);
+  const firebase = useContext(FirebaseContext);
   const history = useHistory();
   const handleSubmit = (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();

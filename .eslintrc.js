@@ -25,6 +25,7 @@ module.exports = {
   ],
   rules: {
     'arrow-body-style': 'off',
+    'react/prop-types': 'off',
     'no-debugger': 'off',
     camelcase: 'off',
     'no-unused-vars': 'off',

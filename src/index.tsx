@@ -8,7 +8,7 @@ import { firebase } from './lib/firebase.prod';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FirebaseContext.Provider value={{ firebase }}>
+    <FirebaseContext.Provider value={firebase}>
       <GlobalStyle />
       <App />
     </FirebaseContext.Provider>
