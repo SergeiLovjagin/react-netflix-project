@@ -12,7 +12,7 @@ type SelectProfilesContainerProps = {
 export const SelectProfilesContainer: React.FC<SelectProfilesContainerProps> = ({ user, setProfile }) => {
   return (
     <>
-      <Header bg={false} src={' '}>
+      <Header bg={false} src={' '} dontShowOnSmallViewPort>
         <Header.Container>
           <Header.Logo to={ROTES.HOME} src={logo} alt="logo" />
         </Header.Container>
