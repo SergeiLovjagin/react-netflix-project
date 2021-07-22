@@ -8,7 +8,7 @@ import { IsUserRedirect, ProtectedRoute } from './felpers/routes';
 import { useAuthListener } from './hooks/useAuthListener';
 
 export const App: React.FC = () => {
-  const user = useAuthListener();
+  const { user } = useAuthListener();
   return (
     <BrowserRouter>
       <Switch>

@@ -1,51 +1,50 @@
 import { SeriesAndFilmsType } from '../hooks/useContent';
 
-export const selectionFilter = (films: SeriesAndFilmsType[] | undefined, series: SeriesAndFilmsType[] | undefined) => {
+export const selectionFilter = (films: SeriesAndFilmsType[], series: SeriesAndFilmsType[]) => {
   return {
     series: [
       {
         title: 'Documentaries',
-        data: series?.filter((el) => el.genre === 'documentaries'),
+        data: series.filter((el) => el.genre === 'documentaries'),
       },
       {
         title: 'Comedies',
-        data: series?.filter((el) => el.genre === 'comedies'),
+        data: series.filter((el) => el.genre === 'comedies'),
       },
       {
         title: 'Children',
-        data: series?.filter((el) => el.genre === 'children'),
+        data: series.filter((el) => el.genre === 'children'),
       },
       {
         title: 'Crime',
-        data: series?.filter((el) => el.genre === 'crime'),
+        data: series.filter((el) => el.genre === 'crime'),
       },
       {
         title: 'Feel good',
-        data: series?.filter((el) => el.genre === 'feel-good'),
+        data: series.filter((el) => el.genre === 'feel-good'),
       },
     ],
     films: [
       {
         title: 'Drama',
-        data: films?.filter((el) => el.genre === 'drama'),
+        data: films.filter((el) => el.genre === 'drama'),
       },
       {
         title: 'Thriller',
-        data: films?.filter((el) => el.genre === 'thriller'),
+        data: films.filter((el) => el.genre === 'thriller'),
       },
       {
         title: 'Children',
-        data: films?.filter((el) => el.genre === 'children'),
+        data: films.filter((el) => el.genre === 'children'),
       },
       {
         title: 'Suspense',
-        data: films?.filter((el) => el.genre === 'suspense'),
+        data: films.filter((el) => el.genre === 'suspense'),
       },
       {
         title: 'Romance',
-        data: films?.filter((el) => el.genre === 'romance'),
+        data: films.filter((el) => el.genre === 'romance'),
       },
-
     ],
   };
 };

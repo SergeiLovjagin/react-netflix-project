@@ -44,7 +44,7 @@ export const SignIn: React.FC = () => {
               placeholder="Password"
               value={password}
               onChange={({ target }: { target: HTMLInputElement }) => setPassword(target.value)}
-              autoComplete={false}
+              autoComplete="on"
               type="password"
             />
             <Form.Submit

@@ -31,6 +31,7 @@ export const Link = styled.p<{ active: string }>`
   color: #fff;
   text-decoration: none;
   margin-right: 30px;
+  font-size: 20px;
   font-weight: ${({ active }) => (active === 'true' ? '700' : 'normal')};
   cursor: pointer;
 
@@ -134,8 +135,13 @@ export const Dropdown = styled.div`
   top: 32px;
   right: 10px;
 
+  ${Group} ${Link} {
+    font-size: 20px;
+  }
+  
   ${Group}:last-of-type ${Link} {
     cursor: pointer;
+    font-size: 12px;
   }
 
   ${Group} {

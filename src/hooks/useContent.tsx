@@ -12,7 +12,7 @@ export type SeriesAndFilmsType = {
 }
 
 export const useContent = (target: string) => {
-  const [content, setContent] = useState<SeriesAndFilmsType[]>();
+  const [content, setContent] = useState<SeriesAndFilmsType[]>([]);
   const firebase = useContext(FirebaseContext);
   useEffect(() => {
     firebase

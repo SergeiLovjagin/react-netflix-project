@@ -7,3 +7,4 @@ export { Feature } from './feature';
 export { Form } from './form';
 export { Profile } from './profile';
 export { Loading } from './loading';
+export { Card } from './card';

@@ -1,65 +1,90 @@
-import React, { useState } from 'react';
+import React, { ReactElement, useState } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import {
-  Background, ButtonLink, Container, Dropdown, Feature, FeatureCallOut, Group, Link, Logo, Picture, Profile, Text, Search, SearchIcon, SearchInput,
+  Background,
+  ButtonLink,
+  Container,
+  Dropdown,
+  Feature,
+  FeatureCallOut,
+  Group,
+  Link,
+  Logo,
+  Picture,
+  PlayButton,
+  Profile,
+  Search,
+  SearchIcon,
+  SearchInput,
+  Text,
 } from './styles/headerStyle';
+
+type WithChildren = {
+  // eslint-disable-next-line react/require-default-props
+  children?: React.ReactNode
+};
 
 export const Header = (
   {
     bg = true, dontShowOnSmallViewPort, children, ...restProps
-  }: { children: any; bg: boolean; src: string, dontShowOnSmallViewPort: boolean },
+  }:
+    { children: any, bg: boolean; src: string, dontShowOnSmallViewPort: boolean },
 ) => (
   bg ? (
     <Background {...restProps} src={restProps.src} dontShowOnSmallViewPort={dontShowOnSmallViewPort}>{children}</Background>
   ) : children
 );
 
-Header.Container = ({ children, ...restProps }: { children: any }) => (
+Header.Container = ({ children, ...restProps }: WithChildren) => (
   <Container {...restProps}>{children}</Container>
 );
 
-Header.Group = ({ children, ...restProps }: { children: any }) => (
+Header.Group = ({ children, ...restProps }: WithChildren) => (
   <Group {...restProps}>{children}</Group>
 );
 
-Header.Feature = ({ children, ...restProps }: { children: any }) => (
+Header.Feature = ({ children, ...restProps }: WithChildren) => (
   <Feature {...restProps}>{children}</Feature>
 );
 
-Header.FeatureCallOut = ({ children, ...restProps }: { children: any }) => (
+Header.FeatureCallOut = ({ children, ...restProps }: WithChildren) => (
   <FeatureCallOut {...restProps}>{children}</FeatureCallOut>
 );
-Header.Logo = ({ ...restProps }: { to: string; alt: string; src: string }) => (
-  <ReactRouterLink to={restProps.to}><Logo {...restProps} /></ReactRouterLink>
+Header.Logo = ({ to, ...restProps }: React.ImgHTMLAttributes<HTMLImageElement> & { to: string }) => (
+  <ReactRouterLink to={to}>
+    <Logo {...restProps} />
+  </ReactRouterLink>
 );
-Header.Link = (
-  {
-    active, children, onClick, ...restProps// eslint-disable-next-line react/require-default-props
-  }: { children: any, active: string, onClick?: () => void },
-) => (
-  <Link {...restProps} active={active}>{children}</Link>
-);
-Header.Text = ({ children, ...restProps }: { children: any }) => (
+
+Header.Link = ({ children, active, ...restProps }: WithChildren & { active: string, onClick: () => void }) => {
+  return <Link {...restProps} active={active}>{children}</Link>;
+};
+
+Header.Text = ({ children, ...restProps }: WithChildren) => (
   <Text {...restProps}>{children}</Text>
 );
 
-Header.Profile = ({ children, ...restProps }: { children: any }) => (
+Header.Profile = ({ children, ...restProps }: WithChildren) => (
   <Profile {...restProps}>{children}</Profile>
 );
 
-Header.Picture = ({ src, ...restProps }: { src: string | null }) => (
+Header.Picture = ({ src, ...restProps }: React.HtmlHTMLAttributes<HTMLButtonElement> & { src: string | null }) => (
   <Picture {...restProps} src={`/images/users/${src}.png`} />
 );
 
-Header.ButtonLink = ({ children, ...restProps }: { children: any, to: string }) => (
+Header.ButtonLink = ({ children, ...restProps }: WithChildren & { to: string }) => (
   <ButtonLink {...restProps}>{children}</ButtonLink>
 );
 
-Header.Dropdown = ({ children, ...restProps }: { children: any }) => (
+Header.PlayButton = ({ children, ...restProps }: WithChildren) => (
+  <PlayButton {...restProps}>{children}</PlayButton>
+);
+
+Header.Dropdown = ({ children, ...restProps }: WithChildren) => (
   <Dropdown {...restProps}>{children}</Dropdown>
 );
 
-Header.Search = ({ searchTerm, setSearchTerm, ...restProps }: { searchTerm: string, setSearchTerm: (value: any) => void }) => {
+Header.Search = ({ searchTerm, setSearchTerm }: { searchTerm: string, setSearchTerm: (value: string) => void }) => {
   const [active, setActive] = useState(false);
   return (
     <Search>

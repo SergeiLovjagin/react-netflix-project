@@ -6,7 +6,7 @@ import logo from '../logo.svg';
 
 type SelectProfilesContainerProps = {
   user: firebase.User | null
-  setProfile: (p: { displayName: string | null | undefined; photoURL: string | null | undefined }) => void
+  setProfile: (p: { displayName: string | null; photoURL: string | null }) => void
 }
 
 export const SelectProfilesContainer: React.FC<SelectProfilesContainerProps> = ({ user, setProfile }) => {
@@ -21,7 +21,7 @@ export const SelectProfilesContainer: React.FC<SelectProfilesContainerProps> = (
         <Profile.Title>
           Who is watching ?
         </Profile.Title>
-        <Profile.Item onClick={() => setProfile({ displayName: user?.displayName, photoURL: user?.photoURL })}>
+        <Profile.Item onClick={() => setProfile({ displayName: user && user.displayName, photoURL: user && user.photoURL })}>
           <Profile.List>
             <Profile.Picture src={user?.photoURL} />
             <Profile.Name>
